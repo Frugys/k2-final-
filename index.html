@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K2 Střechy</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="icon" href="favicon.ico">
+
+<style>
+body { 
+  margin:0; 
+  font-family:Arial,sans-serif; 
+  background:#f4f4f4; 
+}
+
+/* ===== HLAVIČKA ===== */
+.main-header {
+  background: linear-gradient(90deg, #000 0%, #111 50%, #06f 100%);
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  border-bottom: 3px solid #06f;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 70px;
+}
+
+.nav-center {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-center a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: 0.3s;
+}
+
+.nav-center a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+.nav-center a:hover::after {
+  width: 100%;
+}
+
+.nav-contact {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-contact a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition:0.3s;
+}
+
+.nav-contact a:hover {
+  color: #ddd;
+}
+
+/* ===== HERO ===== */
+.hero-section { 
+  background:url('https://i.imgur.com/akYhOlM.jpeg') center/cover no-repeat; 
+  display:flex; 
+  flex-direction:column; 
+  justify-content:center; 
+  align-items:center; 
+  color:#fff; 
+  text-align:center; 
+  padding:0 20px; 
+  height:55vh; /* menší výška */
+  position:relative;
+}
+
+.hero-section::after {
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:6px;
+  background:#06f; /* modrý pruh pod hero */
+}
+
+.hero-section h1, 
+.hero-section p, 
+.hero-button { 
+  opacity:0; 
+  transform:translateY(-20px); 
+  transition:all 0.7s ease; 
+}
+
+.hero-section h1 { 
+  font-size:42px; 
+  margin:0; 
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6); 
+}
+
+.hero-section p { 
+  font-size:20px; 
+  margin:15px 0; 
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.5); 
+}
+
+.hero-button { 
+  display:inline-block; 
+  padding:12px 35px; 
+  background:#06f; 
+  color:#fff; 
+  text-decoration:none; 
+  border-radius:50px; 
+  font-weight:bold; 
+}
+
+.hero-button:hover { 
+  background:#0053c7; 
+}
+
+/* ===== SLUŽBY ===== */
+.services-section { 
+  padding:80px 20px; 
+  text-align:center; 
+  background:#fff; 
+}
+
+.services-section h2 { 
+  font-size:36px; 
+  margin-bottom:50px; 
+}
+
+.services-container { 
+  display:grid; 
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); 
+  gap:30px; 
+  max-width:1200px; 
+  margin:0 auto; 
+}
+
+.service-card { 
+  background:#f9f9f9; 
+  border-radius:20px; 
+  padding:30px 20px; 
+  box-shadow:0 15px 35px rgba(0,0,0,0.1); 
+  transition:0.3s; 
+  text-decoration:none; 
+  color:inherit; 
+}
+
+.service-card:hover { 
+  transform:translateY(-10px); 
+}
+
+.service-card i { 
+  font-size:40px; 
+  color:#06f; 
+  margin-bottom:20px; 
+}
+
+.service-card h3 { 
+  font-size:24px; 
+  margin-bottom:15px; 
+}
+
+.service-card p { 
+  font-size:16px; 
+  line-height:1.5; 
+}
+
+/* ===== O NÁS ===== */
+.about-section { 
+  padding:80px 20px; 
+  background:#e8e8e8; 
+  position:relative;
+}
+
+.about-section::after {
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:6px;
+  background:#06f; /* modrý pruh */
+}
+
+.about-wrapper { 
+  max-width:1200px; 
+  margin:0 auto; 
+  display:flex; 
+  flex-wrap:wrap; 
+  align-items:center; 
+  gap:40px; 
+}
+
+.about-image { 
+  flex:0 0 300px; 
+}
+
+.about-image img { 
+  width:100%; 
+  border-radius:15px; 
+  box-shadow:0 15px 35px rgba(0,0,0,0.2); 
+  transition:0.3s; 
+}
+
+.about-image img:hover { 
+  transform:scale(1.05); 
+}
+
+.about-content { 
+  flex:1; 
+  min-width:250px; 
+}
+
+.about-content h2 { 
+  font-size:36px; 
+  margin-bottom:20px; 
+}
+
+.about-content p { 
+  font-size:17px; 
+  line-height:1.6; 
+  margin-bottom:15px; 
+}
+
+.about-button { 
+  display:inline-block; 
+  padding:12px 30px; 
+  background:#000; 
+  color:#fff; 
+  text-decoration:none; 
+  border-radius:40px; 
+  transition:0.3s; 
+}
+
+.about-button:hover { 
+  background:#06f; 
+}
+
+/* ===== KONTAKT ===== */
+.contact-section { 
+  padding:80px 20px; 
+  background:#fff; 
+  text-align:center; 
+}
+
+.contact-section h2 { 
+  font-size:36px; 
+  margin-bottom:50px; 
+}
+
+.contact-form { 
+  max-width:500px; 
+  margin:0 auto; 
+  display:flex; 
+  flex-direction:column; 
+  gap:15px; 
+}
+
+.contact-form input, 
+.contact-form textarea { 
+  padding:15px; 
+  border-radius:10px; 
+  border:1px solid #ccc; 
+  font-size:16px; 
+}
+
+.contact-form button { 
+  padding:15px; 
+  border:none; 
+  background:#06f; 
+  color:#fff; 
+  font-size:18px; 
+  border-radius:50px; 
+  cursor:pointer; 
+  transition:0.3s; 
+}
+
+.contact-form button:hover { 
+  background:#0053c7; 
+}
+
+/* ===== FOOTER ===== */
+footer { 
+  background:#000; 
+  color:#fff; 
+  text-align:center; 
+  padding:70px 20px; 
+}
+
+footer img { 
+  height:80px; 
+  margin-bottom:15px; 
+}
+
+footer a { 
+  color:white; 
+  font-weight:bold; 
+  text-decoration:none; 
+  margin:0 10px; 
+  transition:0.3s; 
+}
+
+footer a:hover { 
+  color:#06f; 
+}
+
+/* ===== MOBIL ===== */
+@media(max-width:900px) {
+
+  .nav-center { 
+    display:none; 
+  }
+
+  .nav-contact { 
+    gap:10px; 
+    font-size:14px;
+  }
+
+  .hero-section { 
+    height:70vh; 
+  }
+
+  .hero-section h1 { 
+    font-size:32px; 
+  }
+
+  .hero-section p { 
+    font-size:18px; 
+  }
+
+  .about-wrapper { 
+    flex-direction:column; 
+    gap:30px; 
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- HLAVIČKA -->
+<header class="main-header">
+<div class="nav-container">
+<div class="logo"><a href="index.html"><img src="https://i.imgur.com/nARlklA.png" alt="logo"></a></div>
+<nav class="nav-center">
+<a href="klempirske-prace.html">Klempířské práce</a>
+<a href="pokryvacske-prace.html">Pokrývačské práce</a>
+<a href="izolaterske-prace.html">Izolatérské práce</a>
+<a href="servis-udrzba.html">Servis a údržba</a>
+<a href="onas.html">O nás</a>
+</nav>
+<div class="nav-contact">
+<a href="tel:+420704247780"><i class="fas fa-phone"></i> +420 704 247 780</a>
+<a href="mailto:K2strechy@seznam.cz"><i class="fas fa-envelope"></i></a>
+</div>
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero-section">
+  <h1>Kvalitní střechy bez kompromisů</h1>
+  <p>Pokrývačské, klempířské a izolatérské práce po celé ČR</p>
+  <a href="#contact" class="hero-button">Získejte nabídku zdarma</a>
+</section>
+
+<!-- SLUŽBY -->
+<section id="services" class="services-section">
+  <h2>Naše služby</h2>
+  <div class="services-container">
+    <a href="klempirske-prace.html" class="service-card">
+      <i class="fas fa-tools"></i>
+      <h3>Klempířské práce</h3>
+      <p>Od okapů po plechové konstrukce – vše precizně a kvalitně.</p>
+    </a>
+
+    <a href="pokryvacske-prace.html" class="service-card">
+      <i class="fas fa-hammer"></i>
+      <h3>Pokrývačské práce</h3>
+      <p>Nové střechy, rekonstrukce i opravy stávajících krytin.</p>
+    </a>
+
+    <a href="izolaterske-prace.html" class="service-card">
+      <i class="fas fa-water"></i>
+      <h3>Izolatérské práce</h3>
+      <p>Spolehlivá izolace střech a podkroví pro dlouhodobou ochranu.</p>
+    </a>
+
+    <a href="servis-udrzba.html" class="service-card">
+      <i class="fas fa-wrench"></i>
+      <h3>Servis a údržba</h3>
+      <p>Pravidelná údržba střech a rychlý servis po celé ČR.</p>
+    </a>
+  </div>
+</section>
+
+<!-- O NÁS -->
+<section class="about-section">
+  <div class="about-wrapper">
+    <div class="about-image">
+      <img src="https://i.imgur.com/b8t34Az.jpeg" alt="O nás">
+    </div>
+    <div class="about-content">
+      <h2>O nás</h2>
+      <p>Jsme odborníci na střechy s dlouholetou praxí. Realizujeme nové střechy, rekonstrukce i kompletní opravy. Naším cílem je kvalitní práce, precizní detail a maximální spokojenost zákazníků.</p>
+      <a href="onas.html" class="about-button">Více o nás</a>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="contact" class="contact-section">
+  <h2>Kontaktujte nás</h2>
+  <form class="contact-form">
+    <input type="text" placeholder="Vaše jméno" required>
+    <input type="email" placeholder="Váš email" required>
+    <input type="tel" placeholder="Telefon" required>
+    <textarea placeholder="Zpráva" rows="5" required></textarea>
+    <button type="submit">Odeslat</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="https://i.imgur.com/nARlklA.png" alt="logo">
+  <p>
+    <a href="tel:+420704247780"><i class="fas fa-phone"></i> +420 704 247 780</a> |
+    <a href="mailto:K2strechy@seznam.cz"><i class="fas fa-envelope"></i> K2strechy@seznam.cz</a>
+  </p>
+  <p>© 2026 K2 Střechy | Všechna práva vyhrazena</p>
+</footer>
+
+<script>
+window.addEventListener('load', () => {
+  const heroH1 = document.querySelector('.hero-section h1');
+  const heroP = document.querySelector('.hero-section p');
+  const heroBtn = document.querySelector('.hero-button');
+  [heroH1, heroP, heroBtn].forEach(el => { 
+    el.style.opacity=1; 
+    el.style.transform='translateY(0)'; 
+  });
+});
+</script>
+
+</body>
+</html>

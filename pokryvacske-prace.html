@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pokrývačské práce – K2 Střechy</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f4f6f9;line-height:1.6;}
+.main-header{background:linear-gradient(90deg,#000 0%,#111 50%,#06f 100%);padding:15px 40px;position:sticky;top:0;z-index:1000;box-shadow:0 5px 20px rgba(0,0,0,0.2);border-bottom:3px solid #06f;}
+.nav-container{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
+.logo img{height:70px;}
+.nav-center{display:flex;gap:35px;}
+.nav-center a{color:white;text-decoration:none;font-weight:600;position:relative;}
+.nav-center a::after{content:"";position:absolute;width:0%;height:2px;background:#fff;left:0;bottom:-5px;transition:0.3s;}
+.nav-center a:hover::after{width:100%;}
+.nav-contact{display:flex;gap:20px;}
+.nav-contact a{color:white;text-decoration:none;font-weight:600;}
+.hero{height:450px;background:url('https://i.imgur.com/hAn2neb.jpeg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;position:relative;text-align:center;color:white;}
+.hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.55);}
+.hero-content{position:relative;z-index:2;}
+.hero h1{font-size:48px;margin-bottom:15px;}
+.hero p{font-size:20px;opacity:0.9;}
+.main-section{padding:80px 20px;max-width:1100px;margin:0 auto;}
+.section-title{text-align:center;font-size:36px;margin-bottom:40px;}
+.intro-text{font-size:18px;margin-bottom:50px;text-align:center;max-width:900px;margin-left:auto;margin-right:auto;color:#333;}
+.service-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;}
+.card{background:white;border-radius:15px;padding:35px 25px;box-shadow:0 15px 35px rgba(0,0,0,0.1);transition:0.3s;text-align:center;}
+.card:hover{transform:translateY(-8px);}
+.card i{font-size:40px;color:#06f;margin-bottom:15px;}
+.card h3{margin-bottom:10px;font-size:22px;}
+.card p{color:#555;}
+.detail-text{margin-top:70px;font-size:17px;color:#333;}
+.detail-text h3{margin-top:30px;color:#000;}
+
+/* ===== GALERIE STEJNÉ VELIKOSTI ===== */
+.gallery{
+    margin-top:70px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    justify-content:center;
+}
+.gallery img{
+    width:250px;
+    height:180px;
+    object-fit:cover;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    cursor:pointer;
+    transition:0.3s;
+}
+.gallery img:hover{transform:scale(1.05);}
+
+/* ===== LIGHTBOX ===== */
+.lightbox-overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.95);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:2000;
+}
+.lightbox-overlay .swiper{
+    width:90%;
+    max-width:1000px;
+    height:80%;
+}
+.lightbox-overlay .swiper-slide img{
+    width:100%;
+    height:auto;
+    border-radius:0;
+    cursor:default;
+}
+
+footer{margin-top:100px;background:linear-gradient(90deg,#000 0%,#111 50%,#06f 100%);color:white;text-align:center;padding:70px 20px;border-top:3px solid #06f;}
+footer img{height:75px;margin-bottom:20px;}
+footer p{margin:8px 0;font-size:15px;}
+footer a{color:white;text-decoration:none;font-weight:600;margin:0 10px;}
+footer a:hover{color:#ddd;}
+@media(max-width:1000px){.nav-center{display:none;}}
+</style>
+</head>
+<body>
+
+<header class="main-header">
+<div class="nav-container">
+<div class="logo"><a href="index.html"><img src="https://i.imgur.com/nARlklA.png" alt="logo"></a></div>
+<nav class="nav-center">
+<a href="klempirske-prace.html">Klempířské práce</a>
+<a href="pokryvacske-prace.html">Pokrývačské práce</a>
+<a href="izolaterske-prace.html">Izolatérské práce</a>
+<a href="servis-udrzba.html">Servis a údržba</a>
+<a href="onas.html">O nás</a>
+</nav>
+<div class="nav-contact">
+<a href="tel:+420704247780"><i class="fas fa-phone"></i> +420 704 247 780</a>
+<a href="mailto:K2strechy@seznam.cz"><i class="fas fa-envelope"></i></a>
+</div>
+</div>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+<h1>Pokrývačské práce</h1>
+<p>Kompletní pokrývání střech – tašky, plech, eternit a další</p>
+</div>
+</section>
+
+<section class="main-section">
+<h2 class="section-title">Profesionální pokrývačské práce</h2>
+<p class="intro-text">
+Naši pokrývači zajistí kvalitní pokrytí střechy, ochranu před vodou a dlouhou životnost střechy.
+</p>
+
+<div class="service-cards">
+<div class="card"><i class="fas fa-tools"></i><h3>Montáž střešní krytiny</h3><p>Pokládka tašek, plechových krytin a eternitu dle projektu.</p></div>
+<div class="card"><i class="fas fa-hammer"></i><h3>Opravy střech</h3><p>Rychlé a precizní opravy poškozených částí střechy.</p></div>
+<div class="card"><i class="fas fa-tint"></i><h3>Údržba a kontrola</h3><p>Pravidelná kontrola stavu střechy a drobné údržbové práce.</p></div>
+</div>
+
+<div class="detail-text">
+<h3>Proč kvalitní pokrývačské práce?</h3>
+<p>Špatně provedená krytina může způsobit zatékání a vlhnutí. Naše práce zaručuje dlouhou životnost a bezpečnost.</p>
+</div>
+
+<div class="gallery">
+<img src="https://i.imgur.com/HjGGqDJ.jpeg" data-index="0">
+<img src="https://i.imgur.com/EG0mFVZ.jpeg" data-index="1">
+<img src="https://i.imgur.com/Sm1bBuu.jpeg" data-index="2">
+<img src="https://i.imgur.com/4YkwLh1.jpeg" data-index="3">
+<img src="https://i.imgur.com/WmBbm3V.jpeg" data-index="4">
+</div>
+
+</section>
+
+<div class="lightbox-overlay">
+<div class="swiper lightbox-swiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide"><img src="https://i.imgur.com/HjGGqDJ.jpeg"></div>
+<div class="swiper-slide"><img src="https://i.imgur.com/EG0mFVZ.jpeg"></div>
+<div class="swiper-slide"><img src="https://i.imgur.com/Sm1bBuu.jpeg"></div>
+<div class="swiper-slide"><img src="https://i.imgur.com/4YkwLh1.jpeg"></div>
+<div class="swiper-slide"><img src="https://i.imgur.com/WmBbm3V.jpeg"></div>
+</div>
+<div class="swiper-button-next"></div>
+<div class="swiper-button-prev"></div>
+<div class="swiper-pagination"></div>
+</div>
+</div>
+
+<footer>
+<img src="https://i.imgur.com/nARlklA.png" alt="logo">
+<p><a href="tel:+420704247780"><i class="fas fa-phone"></i> +420 704 247 780</a> | <a href="mailto:K2strechy@seznam.cz"><i class="fas fa-envelope"></i> K2strechy@seznam.cz</a></p>
+<p>© 2026 K2 Střechy | Všechna práva vyhrazena</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+const lightbox=new Swiper(".lightbox-swiper",{loop:true,slidesPerView:1,spaceBetween:10,navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"},pagination:{el:".swiper-pagination",clickable:true},keyboard:{enabled:true,onlyInViewport:true}});
+const overlay=document.querySelector('.lightbox-overlay');
+const thumbnails=document.querySelectorAll('.gallery img');
+thumbnails.forEach((thumb,index)=>{thumb.addEventListener('click',()=>{overlay.style.display='flex';lightbox.slideToLoop(index,0);});});
+overlay.addEventListener('click',e=>{if(e.target===overlay){overlay.style.display='none';}});
+</script>
+</body>
+</html>
